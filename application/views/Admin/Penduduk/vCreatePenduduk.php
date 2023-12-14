@@ -26,7 +26,7 @@
 				<div class="col-12 grid-margin stretch-card">
 					<div class="card">
 						<div class="card-body">
-							<form action="<?= base_url('KasiKependudukan/cPenduduk/create') ?>" method="POST" class="forms-sample">
+							<form action="<?= base_url('Admin/cPenduduk/create') ?>" method="POST" class="forms-sample">
 								<div class="form-group">
 									<label for="exampleInputName1">NIK</label>
 									<input type="number" name="nik" class="form-control" id="exampleInputName1" placeholder="Masukkan NIK" />

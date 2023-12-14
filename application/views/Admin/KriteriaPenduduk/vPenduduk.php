@@ -9,14 +9,14 @@
 				<div class="header-right d-flex flex-wrap mt-md-2 mt-lg-0">
 					<div class="d-flex align-items-center">
 						<a href="#">
-							<p class="m-0 pr-3">Kriteria</p>
+							<p class="m-0 pr-3">Kependudukan</p>
 						</a>
 						<a class="pl-3 mr-4" href="#">
-							<p class="m-0">Petugas Desa</p>
+							<p class="m-0">Kasi Kependudukan</p>
 						</a>
 					</div>
-					<a href="<?= base_url('Admin/cSubKriteria/create') ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
-						<i class="mdi mdi-plus-circle"></i> Add Kriteria </a>
+					<a href="<?= base_url('Admin/cKriteriaPenduduk/create') ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
+						<i class="mdi mdi-plus-circle"></i> Add Kriteria Penduduk </a>
 				</div>
 
 			</div>
@@ -34,30 +34,34 @@
 				<div class="col-lg-12 grid-margin stretch-card">
 					<div class="card">
 						<div class="card-body">
-							<h4 class="card-title">Informasi Kriteria</h4>
+							<h4 class="card-title">Informasi Kriteria Penduduk</h4>
 							</p>
 							<div class="table-responsive">
 								<table id="myTable" class="table table-striped">
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Kriteria</th>
+											<th>NIK</th>
+											<th>Nama Kepala Keluarga</th>
+											<th>Alamat</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										$no = 1;
-										foreach ($kriteria as $key => $value) {
+										foreach ($penduduk as $key => $value) {
 										?>
 											<tr>
 												<td><?= $no++ ?></td>
-												<td><?= $value->nama_kriteria ?></td>
+												<td><?= $value->nik ?></td>
+												<td>
+													<?= $value->nama_kk ?>
+												</td>
+												<td><?= $value->alamat ?></td>
 
 												<td>
-													<a href="<?= base_url('Admin/cSubKriteria/update/' . $value->id_kriteria) ?>" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
-													<a href="<?= base_url('Admin/cSubKriteria/delete/' . $value->id_kriteria) ?>" class="btn btn-outline-warning btn-icon-text"><i class="mdi mdi-reload btn-icon-prepend"></i> Hapus </a>
-													<a href="<?= base_url('Admin/cSubKriteria/subkriteria/' . $value->id_kriteria) ?>" class="btn btn-outline-info btn-icon-text"><i class="mdi mdi-settings btn-icon-prepend"></i> Detail </a>
+													<a href="<?= base_url('Admin/cKriteriaPenduduk/detail_kriteria/' . $value->nik) ?>" class="btn btn-outline-success btn-icon-text"> View Kriteria <i class="mdi mdi-eye btn-icon-append"></i></a>
 												</td>
 											</tr>
 										<?php

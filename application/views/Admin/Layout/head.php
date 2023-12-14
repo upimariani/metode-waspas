@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Plus Admin</title>
+	<title>DESA BANJARAN</title>
 	<!-- plugins:css -->
 	<link rel="stylesheet" href="<?= base_url('asset/plus-admin/') ?>assets/vendors/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="<?= base_url('asset/plus-admin/') ?>assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -52,9 +52,27 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('Admin/cKriteria') ?>">
+					<a class="nav-link" href="<?= base_url('Admin/cSubKriteria') ?>">
 						<i class="mdi mdi-format-list-bulleted menu-icon"></i>
 						<span class="menu-title">Kriteria Penilaian</span>
+					</a>
+				</li>
+				<li class="pt-2 pb-1">
+					<span class="nav-item-head">Kependudukan</span>
+				</li>
+
+
+				<li class="nav-item">
+					<a class="nav-link" href="<?= base_url('Admin/cPenduduk') ?>">
+						<i class="mdi mdi-contacts menu-icon"></i>
+						<span class="menu-title">Penduduk</span>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="<?= base_url('Admin/cAnalisis') ?>">
+						<i class="mdi mdi-chart-pie menu-icon"></i>
+						<span class="menu-title">Analisis</span>
 					</a>
 				</li>
 				<li class="nav-item">

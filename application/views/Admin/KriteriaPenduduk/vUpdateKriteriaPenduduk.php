@@ -3,7 +3,7 @@
 	<div class="main-panel">
 		<div class="content-wrapper">
 			<div class="page-header">
-				<h3 class="page-title">Tambah Data Kriteria Penduduk</h3>
+				<h3 class="page-title">Update Data Kriteria Penduduk KK <?= $nik ?></h3>
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#">Forms</a></li>
@@ -11,6 +11,7 @@
 					</ol>
 				</nav>
 			</div>
+
 			<?php
 			if ($this->session->userdata('success')) {
 			?>
@@ -25,24 +26,24 @@
 				<div class="col-12 grid-margin stretch-card">
 					<div class="card">
 						<div class="card-body">
-							<form action="<?= base_url('KasiKependudukan/cKriteriaPenduduk/create') ?>" method="POST" class="forms-sample">
-								<div class="form-group">
-									<label for="exampleInputName1">NIK</label>
-									<select class="form-control" name="nik">
-										<option value="">---Pilih Karyawan---</option>
-										<?php
-										foreach ($karyawan as $key => $value) {
-											if (!$value->periode_bulan) {
-										?>
-												<option value="<?= $value->nik ?>"><?= $value->nama_kk ?> | NIK. <?= $value->nik ?></option>
-										<?php
-											}
-										}
-										?>
-									</select>
-									<?= form_error('nik', '<small class="text-danger">', '</small>') ?>
-								</div>
-								<hr>
+							<form action="<?= base_url('Admin/cKriteriaPenduduk/update/' . $nik) ?>" method="POST" class="forms-sample">
+								<?php
+								$i = 1;
+								foreach ($kriteria_penduduk as $key => $value) {
+									if ($value->id_kriteria == '1') {
+										$k1 = $value->id_subkriteria;
+									} else if ($value->id_kriteria == '2') {
+										$k2 = $value->id_subkriteria;
+									} else if ($value->id_kriteria == '3') {
+										$k3 = $value->id_subkriteria;
+									} else if ($value->id_kriteria == '4') {
+										$k4 = $value->id_subkriteria;
+									}
+								?>
+									<input type="hidden" name="id_kriteria_penduduk<?= $i++ ?>" value="<?= $value->id_kriteria_penduduk ?>">
+								<?php
+								}
+								?>
 								<h6>Kriteria Penilaian</h6>
 								<hr>
 								<div class="form-group">
@@ -51,10 +52,11 @@
 										<option value="">---Pilih Pendapatan KK---</option>
 										<?php
 										foreach ($kriteria as $key => $value) {
-											if ($value->type_kriteria == '1') {
-
+											if ($value->id_kriteria == '1') {
 										?>
-												<option value="<?= $value->id_kriteria ?>"><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
+												<option value="<?= $value->id_subkriteria ?>" <?php if ($value->id_subkriteria == $k1) {
+																									echo 'selected';
+																								} ?>><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
 										<?php
 											}
 										}
@@ -68,10 +70,12 @@
 										<option value="">---Pilih Kriteria Tanggungan Anak---</option>
 										<?php
 										foreach ($kriteria as $key => $value) {
-											if ($value->type_kriteria == '2') {
+											if ($value->id_kriteria == '2') {
 
 										?>
-												<option value="<?= $value->id_kriteria ?>"><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
+												<option value="<?= $value->id_subkriteria ?>" <?php if ($value->id_subkriteria == $k2) {
+																									echo 'selected';
+																								} ?>><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
 										<?php
 											}
 										}
@@ -85,10 +89,12 @@
 										<option value="">---Pilih Penerimaan Bantuan Lain---</option>
 										<?php
 										foreach ($kriteria as $key => $value) {
-											if ($value->type_kriteria == '3') {
+											if ($value->id_kriteria == '4') {
 
 										?>
-												<option value="<?= $value->id_kriteria ?>"><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
+												<option value="<?= $value->id_subkriteria ?>" <?php if ($value->id_subkriteria == $k4) {
+																									echo 'selected';
+																								} ?>><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
 										<?php
 											}
 										}
@@ -102,10 +108,11 @@
 										<option value="">---Pilih Kondisi Rumah---</option>
 										<?php
 										foreach ($kriteria as $key => $value) {
-											if ($value->type_kriteria == '4') {
-
+											if ($value->id_kriteria == '3') {
 										?>
-												<option value="<?= $value->id_kriteria ?>"><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
+												<option value="<?= $value->id_subkriteria ?>" <?php if ($value->id_subkriteria == $k3) {
+																									echo 'selected';
+																								} ?>><?= $value->nama_kriteria ?> | Range. <?= $value->range ?></option>
 										<?php
 											}
 										}

@@ -28,27 +28,26 @@ class mKriteriaPenduduk extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('kriteria_penduduk');
-		$this->db->join('kriteria_penilaian', 'kriteria_penduduk.id_kriteria = kriteria_penilaian.id_kriteria', 'left');
+		$this->db->join('kriteria_penilaian', 'kriteria_penduduk.id_subkriteria = kriteria_penilaian.id_subkriteria', 'left');
+		$this->db->join('kriteria', 'kriteria.id_kriteria = kriteria_penilaian.id_kriteria', 'left');
+
 		$this->db->join('penduduk', 'kriteria_penduduk.nik = penduduk.nik', 'left');
 		$this->db->where('penduduk.nik', $nik);
 		return $this->db->get()->result();
 	}
-	public function edit($id)
+	public function edit($nik)
 	{
-		$this->db->select('*');
-		$this->db->from('kriteria_penduduk');
-		$this->db->where('nik', $id);
-		return $this->db->get()->row();
+		return $this->db->query("SELECT * FROM `kriteria_penduduk` JOIN kriteria_penilaian ON kriteria_penduduk.id_subkriteria=kriteria_penilaian.id_subkriteria JOIN kriteria ON kriteria_penilaian.id_kriteria=kriteria.id_kriteria WHERE nik='" . $nik . "'")->result();
 	}
 	public function update($id, $data)
 	{
-		$this->db->where('nik', $id);
-		$this->db->update('kritera_penduduk', $data);
+		$this->db->where('id_kriteria_penduduk', $id);
+		$this->db->update('kriteria_penduduk', $data);
 	}
 	public function delete($id)
 	{
 		$this->db->where('nik', $id);
-		$this->db->delete('kritera_penduduk');
+		$this->db->delete('kriteria_penduduk');
 	}
 }
 

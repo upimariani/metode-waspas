@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class cPenduduk extends CI_Controller
 {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,9 +14,9 @@ class cPenduduk extends CI_Controller
 		$data = array(
 			'penduduk' => $this->mPenduduk->select()
 		);
-		$this->load->view('KasiKependudukan/Layout/head');
-		$this->load->view('KasiKependudukan/Penduduk/vPenduduk', $data);
-		$this->load->view('KasiKependudukan/Layout/footer');
+		$this->load->view('Admin/Layout/head');
+		$this->load->view('Admin/Penduduk/vPenduduk', $data);
+		$this->load->view('Admin/Layout/footer');
 	}
 	public function create()
 	{
@@ -33,9 +32,9 @@ class cPenduduk extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$this->load->view('KasiKependudukan/Layout/head');
-			$this->load->view('KasiKependudukan/Penduduk/vCreatePenduduk');
-			$this->load->view('KasiKependudukan/Layout/footer');
+			$this->load->view('Admin/Layout/head');
+			$this->load->view('Admin/Penduduk/vCreatePenduduk');
+			$this->load->view('Admin/Layout/footer');
 		} else {
 			$data = array(
 				'nik' => $this->input->post('nik'),
@@ -49,7 +48,7 @@ class cPenduduk extends CI_Controller
 			);
 			$this->mPenduduk->insert($data);
 			$this->session->set_flashdata('success', 'Data Penduduk Berhasil Disimpan!');
-			redirect('KasiKependudukan/cPenduduk');
+			redirect('Admin/cPenduduk');
 		}
 	}
 	public function update($id)
@@ -67,9 +66,9 @@ class cPenduduk extends CI_Controller
 			$data = array(
 				'penduduk' => $this->mPenduduk->edit($id)
 			);
-			$this->load->view('KasiKependudukan/Layout/head');
-			$this->load->view('KasiKependudukan/Penduduk/vUpdatePenduduk', $data);
-			$this->load->view('KasiKependudukan/Layout/footer');
+			$this->load->view('Admin/Layout/head');
+			$this->load->view('Admin/Penduduk/vUpdatePenduduk', $data);
+			$this->load->view('Admin/Layout/footer');
 		} else {
 			$data = array(
 				'nik' => $this->input->post('nik'),
@@ -83,14 +82,14 @@ class cPenduduk extends CI_Controller
 			);
 			$this->mPenduduk->update($id, $data);
 			$this->session->set_flashdata('success', 'Data Penduduk Berhasil Disimpan!');
-			redirect('KasiKependudukan/cPenduduk');
+			redirect('Admin/cPenduduk');
 		}
 	}
 	public function delete($id)
 	{
 		$this->mPenduduk->delete($id);
 		$this->session->set_flashdata('success', 'Data Penduduk Berhasil Disimpan!');
-		redirect('KasiKependudukan/cPenduduk');
+		redirect('Admin/cPenduduk');
 	}
 }
 

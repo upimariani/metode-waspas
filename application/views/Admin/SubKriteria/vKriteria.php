@@ -15,7 +15,7 @@
 							<p class="m-0">Petugas Desa</p>
 						</a>
 					</div>
-					<a href="<?= base_url('Admin/cSubKriteria/create') ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
+					<a href="<?= base_url('Admin/cSubKriteria/createsubkriteria/' . $id_kriteria) ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
 						<i class="mdi mdi-plus-circle"></i> Add Kriteria </a>
 				</div>
 
@@ -42,6 +42,8 @@
 										<tr>
 											<th>No</th>
 											<th>Nama Kriteria</th>
+											<th>Range</th>
+											<th>Bobot</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -53,11 +55,12 @@
 											<tr>
 												<td><?= $no++ ?></td>
 												<td><?= $value->nama_kriteria ?></td>
+												<td><?= $value->range ?></td>
+												<td><?= $value->bobot ?></td>
 
 												<td>
-													<a href="<?= base_url('Admin/cSubKriteria/update/' . $value->id_kriteria) ?>" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
-													<a href="<?= base_url('Admin/cSubKriteria/delete/' . $value->id_kriteria) ?>" class="btn btn-outline-warning btn-icon-text"><i class="mdi mdi-reload btn-icon-prepend"></i> Hapus </a>
-													<a href="<?= base_url('Admin/cSubKriteria/subkriteria/' . $value->id_kriteria) ?>" class="btn btn-outline-info btn-icon-text"><i class="mdi mdi-settings btn-icon-prepend"></i> Detail </a>
+													<a href="<?= base_url('Admin/cSubKriteria/updatesubkriteria/' . $value->id_kriteria . '/' . $value->id_subkriteria) ?>" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
+													<a href="<?= base_url('Admin/cSubKriteria/deletesubkriteria/' . $value->id_kriteria . '/' . $value->id_subkriteria) ?>" class="btn btn-outline-warning btn-icon-text"><i class="mdi mdi-reload btn-icon-prepend"></i> Hapus </a>
 												</td>
 											</tr>
 										<?php

@@ -28,7 +28,7 @@
 
 							<div class="form-block">
 								<div class="mb-4">
-									<img style="display:block; margin:auto;" src="<?= base_url('asset/logo.jpg') ?>" />
+									<img style="display:block; margin:auto; width: 150px;" src="<?= base_url('asset/logo.jpg') ?>" />
 									<h3>Login <strong>User</strong></h3>
 
 									<p class="mb-4">Silahkan melakukan login untuk mendapatkan hak akses anda</p>
