@@ -12,12 +12,16 @@
 							<p class="m-0 pr-3">Kriteria Penilaian Kependudukan</p>
 						</a>
 						<a class="pl-3 mr-4" href="#">
-							<p class="m-0">Kasi Kependudukan</p>
+							<p class="m-0"><?php if ($this->session->userdata('level') == '1') {
+												echo 'Petugas Desa';
+											} else if ($this->session->userdata('level') == '2') {
+												echo 'Kasi Kependudukan';
+											} else {
+												echo 'Kepala Desa';
+											} ?></p>
 						</a>
 					</div>
 					<br>
-					<a href="<?= base_url('Admin/cKriteriaPenduduk/create/' . $nik) ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
-						<i class="mdi mdi-plus-circle"></i> Add Kriteria Penduduk </a>
 
 				</div>
 
@@ -37,7 +41,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">Informasi Kriteria Penilaian Penduduk</h4>
-							<a href="<?= base_url('Admin/cKriteriaPenduduk/update/' . $nik) ?>" class="btn btn-warning ml-2 mt-sm-0 btn-icon-text">
+							<a href="<?= base_url('Admin/cKriteriaPenduduk/update/' . $bulan . '/' . $tahun . '/' . $nik) ?>" class="btn btn-warning ml-2 mt-sm-0 btn-icon-text">
 								<i class="mdi mdi-pencil"></i> Update Kriteria Penduduk </a>
 							<a href="<?= base_url('Admin/cKriteriaPenduduk/delete/' . $nik) ?>" class="btn btn-danger ml-2 mt-sm-0 btn-icon-text">
 								<i class="mdi mdi-exclamation"></i> Hapus Kriteria Penduduk </a>

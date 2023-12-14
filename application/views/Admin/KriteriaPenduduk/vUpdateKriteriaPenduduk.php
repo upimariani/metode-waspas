@@ -26,7 +26,7 @@
 				<div class="col-12 grid-margin stretch-card">
 					<div class="card">
 						<div class="card-body">
-							<form action="<?= base_url('Admin/cKriteriaPenduduk/update/' . $nik) ?>" method="POST" class="forms-sample">
+							<form action="<?= base_url('Admin/cKriteriaPenduduk/update/' . $bulan . '/' . $tahun . '/' . $nik) ?>" method="POST" class="forms-sample">
 								<?php
 								$i = 1;
 								foreach ($kriteria_penduduk as $key => $value) {
@@ -39,12 +39,28 @@
 									} else if ($value->id_kriteria == '4') {
 										$k4 = $value->id_subkriteria;
 									}
+
 								?>
 									<input type="hidden" name="id_kriteria_penduduk<?= $i++ ?>" value="<?= $value->id_kriteria_penduduk ?>">
+
 								<?php
 								}
+
 								?>
 								<h6>Kriteria Penilaian</h6>
+								<hr>
+								<div class="row">
+									<div class="form-group col-lg-6">
+										<label for="exampleInputEmail3">Bulan</label>
+										<input class="form-control" value="<?= $bulan ?>" name="bulan" type="number" placeholder="ex : 6">
+										<?= form_error('bulan', '<small class="text-danger">', '</small>') ?>
+									</div>
+									<div class="form-group col-lg-6">
+										<label for="exampleInputEmail3">Tahun</label>
+										<input class="form-control" name="tahun" value="<?= $tahun ?>" type="number" placeholder="ex : 2023">
+										<?= form_error('tahun', '<small class="text-danger">', '</small>') ?>
+									</div>
+								</div>
 								<hr>
 								<div class="form-group">
 									<label for="exampleInputEmail3">Pendapatan KK</label>

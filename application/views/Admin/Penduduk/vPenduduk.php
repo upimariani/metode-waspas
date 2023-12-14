@@ -12,7 +12,13 @@
 							<p class="m-0 pr-3">Kependudukan</p>
 						</a>
 						<a class="pl-3 mr-4" href="#">
-							<p class="m-0">Kasi Kependudukan</p>
+							<p class="m-0"><?php if ($this->session->userdata('level') == '1') {
+												echo 'Petugas Desa';
+											} else if ($this->session->userdata('level') == '2') {
+												echo 'Kasi Kependudukan';
+											} else {
+												echo 'Kepala Desa';
+											} ?></p>
 						</a>
 					</div>
 					<a href="<?= base_url('Admin/cPenduduk/create') ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">
@@ -73,7 +79,7 @@
 												<td>
 													<a href="<?= base_url('Admin/cPenduduk/update/' . $value->nik) ?>" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
 													<a href="<?= base_url('Admin/cPenduduk/delete/' . $value->nik) ?>" class="btn btn-outline-warning btn-icon-text"><i class="mdi mdi-reload btn-icon-prepend"></i> Hapus </a>
-													<a href="<?= base_url('Admin/cKriteriaPenduduk/detail_kriteria/' . $value->nik) ?>" class="btn btn-outline-info btn-icon-text"><i class="mdi mdi-eye btn-icon-prepend"></i> Detail Kriteria </a>
+													<a href="<?= base_url('Admin/cKriteriaPenduduk/periode/' . $value->nik) ?>" class="btn btn-outline-info btn-icon-text"><i class="mdi mdi-eye btn-icon-prepend"></i> Detail Kriteria </a>
 												</td>
 											</tr>
 										<?php

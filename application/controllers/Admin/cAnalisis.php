@@ -13,21 +13,32 @@ class cAnalisis extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'analisis' => $this->mAnalisis->select()
+			'periode' => $this->mAnalisis->periode()
+		);
+		$this->load->view('Admin/Layout/head');
+		$this->load->view('Admin/Analisis/vPeriode', $data);
+		$this->load->view('Admin/Layout/footer');
+	}
+	public function view_analisis($bulan, $tahun)
+	{
+		$data = array(
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'analisis' => $this->mAnalisis->select($bulan, $tahun)
 		);
 		$this->load->view('Admin/Layout/head');
 		$this->load->view('Admin/Analisis/vAnalisis', $data);
-		$this->load->view('Admin/Layout/footer');
+		$this->load->view('Admin/Layout/footer', $data);
 	}
-	public function create()
+	public function create($bulan, $tahun)
 	{
 		//bismillah perhitungan
-		$this->mAnalisis->hapus_data();
+		$this->mAnalisis->hapus_data($bulan, $tahun);
 
 		//membuat variabel
 		$karyawan = $this->db->query("SELECT * FROM `penduduk`")->result();
 		foreach ($karyawan as $key => $value) {
-			$variabel = $this->db->query("SELECT * FROM `kriteria_penduduk` JOIN kriteria_penilaian ON kriteria_penduduk.id_subkriteria=kriteria_penilaian.id_subkriteria WHERE nik='" . $value->nik . "'")->result();
+			$variabel = $this->db->query("SELECT * FROM `kriteria_penduduk` JOIN kriteria_penilaian ON kriteria_penduduk.id_subkriteria=kriteria_penilaian.id_subkriteria WHERE nik='" . $value->nik . "' AND periode_bulan='" . $bulan . "' AND periode_tahun='" . $tahun . "'")->result();
 			foreach ($variabel as $key => $item) {
 
 				if ($item->id_kriteria == '1') {
@@ -73,8 +84,8 @@ class cAnalisis extends CI_Controller
 
 			//simpan data di tabel analisis
 			$analisis = array(
-				'per_bulan' => date('m'),
-				'per_tahun' => date('Y'),
+				'per_bulan' => $bulan,
+				'per_tahun' => $tahun,
 				'hasil' => $hasil
 			);
 			$this->db->insert('analisis', $analisis);
@@ -85,6 +96,8 @@ class cAnalisis extends CI_Controller
 				'id_analisis' => $id_analisis->id
 			);
 			$this->db->where('nik', $nik[$i]);
+			$this->db->where('periode_bulan', $bulan);
+			$this->db->where('periode_tahun', $tahun);
 			$this->db->update('kriteria_penduduk', $data);
 		}
 		$this->session->set_flashdata('success', 'Data Analisis Berhasil Disimpan!');

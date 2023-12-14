@@ -35,46 +35,69 @@
 							<!--change to offline or busy as needed-->
 						</div>
 						<div class="nav-profile-text d-flex ml-0 mb-3 flex-column">
-							<span class="font-weight-semibold mb-1 mt-2 text-center">Petugas Desa</span>
+							<span class="font-weight-semibold mb-1 mt-2 text-center"><?php if ($this->session->userdata('level') == '1') {
+																							echo 'Petugas Desa';
+																						} else if ($this->session->userdata('level') == '2') {
+																							echo 'Kasi Kependudukan';
+																						} else {
+																							echo 'Kepala Desa';
+																						} ?></span>
 						</div>
 					</a>
 				</li>
-				<li class="pt-2 pb-1">
-					<span class="nav-item-head">Kelola Data Master</span>
-				</li>
+				<?php if ($this->session->userdata('level') == '1') {
+				?>
+					<li class="pt-2 pb-1">
+						<span class="nav-item-head">Kelola Data Master</span>
+					</li>
 
 
 
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('Admin/cUser') ?>">
-						<i class="mdi mdi-contacts menu-icon"></i>
-						<span class="menu-title">User</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('Admin/cSubKriteria') ?>">
-						<i class="mdi mdi-format-list-bulleted menu-icon"></i>
-						<span class="menu-title">Kriteria Penilaian</span>
-					</a>
-				</li>
-				<li class="pt-2 pb-1">
-					<span class="nav-item-head">Kependudukan</span>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('Admin/cUser') ?>">
+							<i class="mdi mdi-contacts menu-icon"></i>
+							<span class="menu-title">User</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('Admin/cSubKriteria') ?>">
+							<i class="mdi mdi-format-list-bulleted menu-icon"></i>
+							<span class="menu-title">Kriteria Penilaian</span>
+						</a>
+					</li>
+				<?php
+				} ?>
+
+				<?php
+				if ($this->session->userdata('level') == '2' || $this->session->userdata('level') == '1') {
+				?>
+					<li class="pt-2 pb-1">
+						<span class="nav-item-head">Kependudukan</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('Admin/cPenduduk') ?>">
+							<i class="mdi mdi-contacts menu-icon"></i>
+							<span class="menu-title">Penduduk</span>
+						</a>
+					</li>
+				<?php
+				}
+				?>
+				<?php
+				if ($this->session->userdata('level') == '1' || $this->session->userdata('level') == '3') {
+				?>
+
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('Admin/cAnalisis') ?>">
+							<i class="mdi mdi-chart-pie menu-icon"></i>
+							<span class="menu-title">Analisis</span>
+						</a>
+					</li>
+				<?php
+				}
+				?>
 
 
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('Admin/cPenduduk') ?>">
-						<i class="mdi mdi-contacts menu-icon"></i>
-						<span class="menu-title">Penduduk</span>
-					</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('Admin/cAnalisis') ?>">
-						<i class="mdi mdi-chart-pie menu-icon"></i>
-						<span class="menu-title">Analisis</span>
-					</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('cLogin/logout') ?>">
 						<i class="mdi mdi-run menu-icon"></i>

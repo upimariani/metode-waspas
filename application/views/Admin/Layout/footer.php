@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="d-sm-flex justify-content-center justify-content-sm-between">
-		<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-		<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+		<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">DESA BANJARAN</span>
+		<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> SISTEM PENUNJANG KEPUTUSAN DALAM MENENTUKAN PENDUDUK BANTUAN PKH | METODE WASPAS</span>
 	</div>
 </footer>
 <!-- partial -->
@@ -31,29 +31,388 @@
 <script src="<?= base_url('asset/plus-admin/') ?>assets/js/select2.js"></script>
 <script src="<?= base_url('asset/DataTables/') ?>datatables.min.js"></script>
 <link href="<?= base_url('asset/DataTables/') ?>datatables.min.css" rel="stylesheet">
+<script src="<?= base_url('asset/chart/js_chart.js') ?>"></script>
 <script>
-	console.log = function() {}
-	$("#bahan_baku").on('change', function() {
-
-		$(".nama").html($(this).find(':selected').attr('data-nama'));
-		$(".nama").val($(this).find(':selected').attr('data-nama'));
-
-
-		$(".keterangan").html($(this).find(':selected').attr('data-keterangan'));
-		$(".keterangan").val($(this).find(':selected').attr('data-keterangan'));
-
-		$(".harga").html($(this).find(':selected').attr('data-harga'));
-		$(".harga").val($(this).find(':selected').attr('data-harga'));
-
-		$(".stok").html($(this).find(':selected').attr('data-stok'));
-		$(".stok").val($(this).find(':selected').attr('data-stok'));
-
-		$(".deskripsi").html($(this).find(':selected').attr('data-deskripsi'));
-		$(".deskripsi").val($(this).find(':selected').attr('data-deskripsi'));
-
-
+	<?php
+	foreach ($analisis as $key => $value) {
+		$nama[] = $value->nama_kk;
+		$hasil[] = $value->hasil;
+	}
+	?>
+	var ctx = document.getElementById('hasil');
+	var grafik = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <?= json_encode($nama) ?>,
+			datasets: [{
+				label: 'Grafik Hasil Analisis',
+				data: <?= json_encode($hasil) ?>,
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				fill: false,
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
 	});
 </script>
+
 <script>
 	$(document).ready(function() {
 		$('#myTable').DataTable();
@@ -62,14 +421,14 @@
 </script>
 <script>
 	console.log = function() {}
-	$(".bahan_jadi").on('change', function() {
+	$("#date").on('change', function() {
 
-		$(".nama").html($(this).find(':selected').attr('data-nama'));
-		$(".nama").val($(this).find(':selected').attr('data-nama'));
+		$(".bulan").html($(this).find(':selected').attr('data-bulan'));
+		$(".bulan").val($(this).find(':selected').attr('data-bulan'));
 
 
-		$(".stok").html($(this).find(':selected').attr('data-stok'));
-		$(".stok").val($(this).find(':selected').attr('data-stok'));
+		$(".tahun").html($(this).find(':selected').attr('data-tahun'));
+		$(".tahun").val($(this).find(':selected').attr('data-tahun'));
 
 
 	});

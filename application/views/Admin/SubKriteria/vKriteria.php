@@ -12,7 +12,13 @@
 							<p class="m-0 pr-3">Kriteria</p>
 						</a>
 						<a class="pl-3 mr-4" href="#">
-							<p class="m-0">Petugas Desa</p>
+							<p class="m-0"><?php if ($this->session->userdata('level') == '1') {
+												echo 'Petugas Desa';
+											} else if ($this->session->userdata('level') == '2') {
+												echo 'Kasi Kependudukan';
+											} else {
+												echo 'Kepala Desa';
+											} ?></p>
 						</a>
 					</div>
 					<a href="<?= base_url('Admin/cSubKriteria/createsubkriteria/' . $id_kriteria) ?>" class="btn btn-primary mt-2 mt-sm-0 btn-icon-text">

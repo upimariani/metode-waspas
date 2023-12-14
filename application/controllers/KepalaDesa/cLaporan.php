@@ -55,7 +55,9 @@ class cLaporan extends CI_Controller
 
 		$pdf->SetFont('Times', '', 9);
 		$no = 1;
-		$hasil =  $this->mAnalisis->select();
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		$hasil =  $this->mAnalisis->select($bulan, $tahun);
 		foreach ($hasil as $key => $value) {
 			$pdf->Cell(10, 7, $no++, 1, 0, 'C');
 			$pdf->Cell(35, 7, $value->nik, 1, 0, 'C');

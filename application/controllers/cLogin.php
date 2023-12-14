@@ -34,9 +34,9 @@ class cLogin extends CI_Controller
 				if ($auth->level_user == '1') {
 					redirect('Admin/cUser');
 				} else if ($auth->level_user == '2') {
-					redirect('KasiKependudukan/cPenduduk');
+					redirect('Admin/cPenduduk');
 				} else if ($auth->level_user == '3') {
-					redirect('KepalaDesa/cLaporan');
+					redirect('Admin/cAnalisis');
 				}
 			} else {
 				$this->session->set_flashdata('error', 'Username dan Password Salah!!!');

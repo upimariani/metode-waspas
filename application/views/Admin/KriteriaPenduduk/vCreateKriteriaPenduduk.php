@@ -30,6 +30,22 @@
 
 								<h6>Kriteria Penilaian</h6>
 								<hr>
+								<div class="row">
+									<div class="form-group col-lg-6">
+										<label for="exampleInputEmail3">Bulan</label>
+										<input class="form-control" name="bulan" type="number" placeholder="ex : 6">
+										<?= form_error('bulan', '<small class="text-danger">', '</small>') ?>
+									</div>
+									<div class="form-group col-lg-6">
+										<label for="exampleInputEmail3">Tahun</label>
+										<input class="form-control" name="tahun" type="number" placeholder="ex : 2023">
+										<?= form_error('tahun', '<small class="text-danger">', '</small>') ?>
+									</div>
+								</div>
+
+
+
+								<hr>
 								<div class="form-group">
 									<label for="exampleInputEmail3">Pendapatan KK</label>
 									<select class="form-control" name="kriteria1">
@@ -99,7 +115,6 @@
 
 
 								<button type="submit" class="btn btn-primary mr-2"> Submit </button>
-								<button class="btn btn-light">Cancel</button>
 							</form>
 						</div>
 					</div>
