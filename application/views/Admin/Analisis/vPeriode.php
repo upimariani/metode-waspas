@@ -94,6 +94,7 @@
 
 												<td>
 													<a href="<?= base_url('Admin/cAnalisis/view_analisis/' . $value->periode_bulan . '/' . $value->periode_tahun) ?>" class="btn btn-outline-success btn-icon-text"> View Data <i class="mdi mdi-eye btn-icon-append"></i></a>
+													<a href="<?= base_url('Admin/cAnalisis/perhitungan/' . $value->periode_bulan . '/' . $value->periode_tahun) ?>" class="btn btn-outline-warning btn-icon-text"> Perhitungan <i class="mdi mdi-book btn-icon-append"></i></a>
 												</td>
 											</tr>
 										<?php

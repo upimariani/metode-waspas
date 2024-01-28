@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 12:05 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Waktu pembuatan: 28 Jan 2024 pada 01.38
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `analisis`
+-- Struktur dari tabel `analisis`
 --
 
 CREATE TABLE `analisis` (
@@ -36,20 +36,20 @@ CREATE TABLE `analisis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `analisis`
+-- Dumping data untuk tabel `analisis`
 --
 
 INSERT INTO `analisis` (`id_analisis`, `per_bulan`, `per_tahun`, `hasil`) VALUES
-(5, 12, 2023, 4.3635),
-(6, 12, 2023, 8.299),
-(7, 12, 2023, 8.299),
 (8, 1, 2024, 8.3852),
-(9, 1, 2024, 8.1196);
+(9, 1, 2024, 8.1196),
+(10, 12, 2023, 4.3635),
+(11, 12, 2023, 8.299),
+(12, 12, 2023, 8.299);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria`
+-- Struktur dari tabel `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -59,19 +59,19 @@ CREATE TABLE `kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kriteria`
+-- Dumping data untuk tabel `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `id_user`, `nama_kriteria`) VALUES
-(1, 0, 'Pendapatan Kepala Keluarga'),
-(2, 0, 'Tunjangan Anak'),
-(3, 0, 'Kondisi Rumah'),
-(4, 0, 'Penerima Bantuan Lain');
+(1, 1, 'Pendapatan Kepala Keluarga'),
+(2, 1, 'Tunjangan Anak'),
+(3, 1, 'Kondisi Rumah'),
+(4, 1, 'Penerima Bantuan Lain');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria_penduduk`
+-- Struktur dari tabel `kriteria_penduduk`
 --
 
 CREATE TABLE `kriteria_penduduk` (
@@ -84,35 +84,35 @@ CREATE TABLE `kriteria_penduduk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kriteria_penduduk`
+-- Dumping data untuk tabel `kriteria_penduduk`
 --
 
 INSERT INTO `kriteria_penduduk` (`id_kriteria_penduduk`, `id_subkriteria`, `id_analisis`, `nik`, `periode_bulan`, `periode_tahun`) VALUES
-(1, 6, '5', 320987484939342, 12, 2023),
-(2, 10, '5', 320987484939342, 12, 2023),
-(3, 12, '5', 320987484939342, 12, 2023),
-(4, 16, '5', 320987484939342, 12, 2023),
+(1, 6, '10', 320987484939342, 12, 2023),
+(2, 10, '10', 320987484939342, 12, 2023),
+(3, 12, '10', 320987484939342, 12, 2023),
+(4, 16, '10', 320987484939342, 12, 2023),
 (5, 4, '8', 320987484939342, 1, 2024),
 (6, 7, '8', 320987484939342, 1, 2024),
 (7, 13, '8', 320987484939342, 1, 2024),
 (8, 11, '8', 320987484939342, 1, 2024),
-(9, 4, '6', 890958574637723, 12, 2023),
-(10, 9, '6', 890958574637723, 12, 2023),
-(11, 11, '6', 890958574637723, 12, 2023),
-(12, 14, '6', 890958574637723, 12, 2023),
+(9, 4, '11', 890958574637723, 12, 2023),
+(10, 9, '11', 890958574637723, 12, 2023),
+(11, 11, '11', 890958574637723, 12, 2023),
+(12, 14, '11', 890958574637723, 12, 2023),
 (13, 5, '9', 890958574637723, 1, 2024),
 (14, 8, '9', 890958574637723, 1, 2024),
 (15, 11, '9', 890958574637723, 1, 2024),
 (16, 14, '9', 890958574637723, 1, 2024),
-(17, 4, '7', 3209987889876567, 12, 2023),
-(18, 9, '7', 3209987889876567, 12, 2023),
-(19, 11, '7', 3209987889876567, 12, 2023),
-(20, 14, '7', 3209987889876567, 12, 2023);
+(17, 4, '12', 3209987889876567, 12, 2023),
+(18, 9, '12', 3209987889876567, 12, 2023),
+(19, 11, '12', 3209987889876567, 12, 2023),
+(20, 14, '12', 3209987889876567, 12, 2023);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria_penilaian`
+-- Struktur dari tabel `kriteria_penilaian`
 --
 
 CREATE TABLE `kriteria_penilaian` (
@@ -123,7 +123,7 @@ CREATE TABLE `kriteria_penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kriteria_penilaian`
+-- Dumping data untuk tabel `kriteria_penilaian`
 --
 
 INSERT INTO `kriteria_penilaian` (`id_subkriteria`, `id_kriteria`, `range`, `bobot`) VALUES
@@ -145,7 +145,7 @@ INSERT INTO `kriteria_penilaian` (`id_subkriteria`, `id_kriteria`, `range`, `bob
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penduduk`
+-- Struktur dari tabel `penduduk`
 --
 
 CREATE TABLE `penduduk` (
@@ -160,7 +160,7 @@ CREATE TABLE `penduduk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penduduk`
+-- Dumping data untuk tabel `penduduk`
 --
 
 INSERT INTO `penduduk` (`nik`, `nama_kk`, `alamat`, `nama_ayah`, `nama_ibu`, `jml_anak`, `tgl_lahir`, `no_hp`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `penduduk` (`nik`, `nama_kk`, `alamat`, `nama_ayah`, `nama_ibu`, `jm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -186,7 +186,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
@@ -199,77 +199,77 @@ INSERT INTO `user` (`id_user`, `nama`, `alamat`, `no_hp`, `username`, `password`
 --
 
 --
--- Indexes for table `analisis`
+-- Indeks untuk tabel `analisis`
 --
 ALTER TABLE `analisis`
   ADD PRIMARY KEY (`id_analisis`);
 
 --
--- Indexes for table `kriteria`
+-- Indeks untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indexes for table `kriteria_penduduk`
+-- Indeks untuk tabel `kriteria_penduduk`
 --
 ALTER TABLE `kriteria_penduduk`
   ADD PRIMARY KEY (`id_kriteria_penduduk`);
 
 --
--- Indexes for table `kriteria_penilaian`
+-- Indeks untuk tabel `kriteria_penilaian`
 --
 ALTER TABLE `kriteria_penilaian`
   ADD PRIMARY KEY (`id_subkriteria`);
 
 --
--- Indexes for table `penduduk`
+-- Indeks untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `analisis`
+-- AUTO_INCREMENT untuk tabel `analisis`
 --
 ALTER TABLE `analisis`
-  MODIFY `id_analisis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_analisis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `kriteria`
+-- AUTO_INCREMENT untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kriteria_penduduk`
+-- AUTO_INCREMENT untuk tabel `kriteria_penduduk`
 --
 ALTER TABLE `kriteria_penduduk`
   MODIFY `id_kriteria_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `kriteria_penilaian`
+-- AUTO_INCREMENT untuk tabel `kriteria_penilaian`
 --
 ALTER TABLE `kriteria_penilaian`
   MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `penduduk`
+-- AUTO_INCREMENT untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
   MODIFY `nik` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32098871625416777;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;

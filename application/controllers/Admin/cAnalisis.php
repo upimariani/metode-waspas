@@ -103,6 +103,17 @@ class cAnalisis extends CI_Controller
 		$this->session->set_flashdata('success', 'Data Analisis Berhasil Disimpan!');
 		redirect('Admin/cAnalisis');
 	}
+	public function perhitungan($bulan, $tahun)
+	{
+		$data = array(
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'periode' => $this->mAnalisis->periode()
+		);
+		$this->load->view('Admin/Layout/head');
+		$this->load->view('Admin/Analisis/vPerhitungan', $data);
+		$this->load->view('Admin/Layout/footer');
+	}
 }
 
 /* End of file cAnalisis.php */

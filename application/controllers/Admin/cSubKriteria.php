@@ -32,6 +32,7 @@ class cSubKriteria extends CI_Controller
 			$this->load->view('Admin/Layout/footer');
 		} else {
 			$data = array(
+				'id_user' => '1',
 				'nama_kriteria' => $this->input->post('nama')
 			);
 			$this->mKriteria->insert($data);
